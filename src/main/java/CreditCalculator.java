@@ -10,15 +10,16 @@ public class CreditCalculator {
     }
 
     public double calculateMonthlyPayment() {
-        return 0;
+        return (((interestRate / 1200 * (Math.pow((1 + interestRate / 1200), creditTerm))) /
+                (Math.pow((1 + interestRate / 1200), creditTerm) - 1)) * creditAmount);
     }
 
     public double calculateFullAmount() {
-        return 0;
+        return calculateMonthlyPayment() * creditTerm;
     }
 
     public double calculateOverpayment() {
-        return 0;
+        return calculateFullAmount() - creditAmount;
     }
 
 }
